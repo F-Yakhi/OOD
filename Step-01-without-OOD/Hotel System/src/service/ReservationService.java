@@ -26,18 +26,11 @@ public class ReservationService {
         }
 
         if (notifier == Notifier.MOBILE) {
-            sendByNumber(res.customer.mobile);
+            MessageSender messageSender = new SendByMobileNumber();
+            messageSender.sendMessage(res.customer.mobile);
         }else {
-            sendByEmail(res.customer.email);
-        }
-    }
-
-    public void sendByEmail(String email){
-        System.out.println("Your room is reserved, Enjoy your trip!");
-    }
-
-    public void sendByNumber(String mobile){
-        System.out.println("Your room is reserved, Enjoy your trip!");
+            MessageSender messageSender = new SendByEmail();
+            messageSender.sendMessage(res.customer.mobile);        }
     }
 
 }
