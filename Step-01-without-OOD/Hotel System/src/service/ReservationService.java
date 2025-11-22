@@ -30,7 +30,7 @@ public class ReservationService {
             messageSender.sendMessage(res.customer.mobile);
         }else {
             MessageSender messageSender = new SendByEmail();
-            messageSender.sendMessage(res.customer.mobile);        }
+            messageSender.sendMessage(res.customer.email);        }
     }
 
 }
